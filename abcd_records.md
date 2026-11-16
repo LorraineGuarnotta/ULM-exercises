@@ -1,11 +1,11 @@
-# Exo 2 – ABCD Records 📼
+ Exo 2  📼
 
 > Note: Mermaid has no dedicated use case diagram, so use case diagrams are drawn with a flowchart:
 > actors are circles, use cases are rounded boxes inside the system boundary, and `include` / `extend` are dotted arrows.
 
-## Level 1
+ Level 1
 
-### Task 1.1 – Simple use case diagram
+ Task 1.1 – Simple use case diagram
 
 ```mermaid
 flowchart LR
@@ -23,7 +23,7 @@ flowchart LR
     C --- UC3
 ```
 
-### Task 1.2 – Basic class diagram
+ Task 1.2 – Basic class diagram
 
 ```mermaid
 classDiagram
@@ -51,12 +51,12 @@ classDiagram
     OrderProcessingClerk "1" --> "0..*" Order : processes
 ```
 
-## Level 2
+Level 2
 
-### Task 2.1 – Complete use case diagram
+Task 2.1 
 
-- **include** (always happens): placing an order always verifies membership; processing an order always checks availability and prints the invoice and the shipping list.
-- **extend** (only sometimes): a discount applies only to Royal members; ordering unavailable items is only for Royal members; the membership application is only sent when the person is not a member.
+- include (always happens): placing an order always verifies membership; processing an order always checks availability and prints the invoice and the shipping list.
+- extend (only sometimes): a discount applies only to Royal members; ordering unavailable items is only for Royal members; the membership application is only sent when the person is not a member.
 - A Royal Member is a kind of Member (actor generalization).
 
 ```mermaid
@@ -95,11 +95,11 @@ flowchart LR
     AD -. extend .-> PR
 ```
 
-### Task 2.2 – Complete class diagram
+ Task 2.2 – Complete class diagram
 
-- **Member types**: `Member` is abstract, `RoyalMember` (discounts, priority, can order unavailable items) and `RegularMember` inherit from it.
-- **Payment types**: `Payment` is abstract with `process()`, implemented by `Cash`, `Check` and `BankDraft`.
-- **Item types**: `Item` is abstract, `CD` and `Tape` inherit from it.
+- Member types**: `Member` is abstract, `RoyalMember` (discounts, priority, can order unavailable items) and `RegularMember` inherit from it.
+- Payment types**: `Payment` is abstract with `process()`, implemented by `Cash`, `Check` and `BankDraft`.
+- Item types**: `Item` is abstract, `CD` and `Tape` inherit from it.
 - An `Order` is **composed of** one or more `OrderLine`s (filled diamond: the lines don't exist without their order); each line refers to one `Item`.
 - Each order produces exactly one `Invoice` and one `ShippingList` (composition), and is saved in the `DailyRecordsFile`.
 
@@ -211,7 +211,7 @@ classDiagram
     DailyRecordsFile "1" o-- "0..*" Order : records
 ```
 
-### Scenario – a Royal member orders 2 CDs (one unavailable) and pays by check
+ A Royal member orders 2 CDs (one unavailable) and pays by check
 
 ```mermaid
 sequenceDiagram
@@ -235,9 +235,9 @@ sequenceDiagram
     CD-->>RM: payment confirmed
 ```
 
-## Level 3 – Advanced sequence diagrams
+Level 3 
 
-### Complete order processing flow
+ Complete order processing flow
 
 ```mermaid
 sequenceDiagram
@@ -261,7 +261,7 @@ sequenceDiagram
     C-->>M: order confirmed + invoice
 ```
 
-### Membership verification (success and failure)
+ Membership verification (success and failure)
 
 ```mermaid
 sequenceDiagram
@@ -280,7 +280,7 @@ sequenceDiagram
     end
 ```
 
-### Payment processing (all types)
+ Payment processing (all types)
 
 ```mermaid
 sequenceDiagram
@@ -301,7 +301,7 @@ sequenceDiagram
     CD-->>M: receipt
 ```
 
-### Item reordering for Royal members
+Item reordering for Royal members
 
 ```mermaid
 sequenceDiagram
