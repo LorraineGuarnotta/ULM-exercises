@@ -97,10 +97,10 @@ flowchart LR
 
  Task 2.2 – Complete class diagram
 
-- Member types**: `Member` is abstract, `RoyalMember` (discounts, priority, can order unavailable items) and `RegularMember` inherit from it.
-- Payment types**: `Payment` is abstract with `process()`, implemented by `Cash`, `Check` and `BankDraft`.
-- Item types**: `Item` is abstract, `CD` and `Tape` inherit from it.
-- An `Order` is **composed of** one or more `OrderLine`s (filled diamond: the lines don't exist without their order); each line refers to one `Item`.
+- Member types: `Member` is abstract, `RoyalMember` (discounts, priority, can order unavailable items) and `RegularMember` inherit from it.
+- Payment types: `Payment` is abstract with `process()`, implemented by `Cash`, `Check` and `BankDraft`.
+- Item types: `Item` is abstract, `CD` and `Tape` inherit from it.
+- An `Order` is composed of one or more `OrderLine`s (filled diamond: the lines don't exist without their order); each line refers to one `Item`.
 - Each order produces exactly one `Invoice` and one `ShippingList` (composition), and is saved in the `DailyRecordsFile`.
 
 ```mermaid
